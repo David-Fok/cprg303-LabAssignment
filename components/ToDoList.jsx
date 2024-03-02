@@ -7,7 +7,20 @@ import {
     ScrollView,
   } from 'react-native';
 
-function ToDoList(props) {
+function ToDoList({tasks}) {
+  return (
+    <View>
+      {tasks.map((task, index) => (
+        <View key={index} style={styles.task}>
+          <Text style={styles.taskText}>
+            {task}
+          </Text>
+        </View>
+      ))}
+    </View>
+  );
+}
+/*function ToDoList(props) {
   return (
     <>
           <ScrollView>
@@ -29,7 +42,7 @@ function ToDoList(props) {
       </ScrollView>
     </>
   );
-}
+}*/
 
 const styles = StyleSheet.create({
     task: {
