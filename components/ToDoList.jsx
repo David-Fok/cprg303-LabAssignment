@@ -9,17 +9,19 @@ import {
 
 function ToDoList({tasks}) {
   return (
-    <View>
+
+    <ScrollView>
       {tasks.map((task, index) => (
-        <View key={index} style={styles.task}>
-          <Text style={styles.taskText}>
-            {task}
-          </Text>
-        </View>
-      ))}
-    </View>
+        <Pressable key={index}>
+            <View style={[styles.task]}>
+              <Text style={styles.taskText}> {task} </Text>
+            </View>
+          </Pressable>
+        ))}
+    </ScrollView>
   );
 }
+
 /*function ToDoList(props) {
   return (
     <>

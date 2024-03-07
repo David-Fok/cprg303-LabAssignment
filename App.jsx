@@ -21,14 +21,24 @@ function App() {
     'Walk dog'
   ]);
 
+const handleAddTask = (task) => {
+  setTasks([...tasks,task]);
+
+  //tasks.push(task);
+  //setTasks(tasks);
+
+  //setTasks((prevTasks) => [...prev, task]);
+
+  //setTasks(tasks.concat(task));
+
+}
+
   return (
     <SafeAreaView>
-<ToDoList tasks={tasks} />
-<ToDoForm/>
+      <ToDoList tasks={tasks} />
+      <ToDoForm addTask={handleAddTask}/>
     </SafeAreaView>
   );
 }
-
-
 
 export default App;
