@@ -1,9 +1,3 @@
-/**
- * My To Do List App
- *
- * @format
- */
-
 import React from 'react';
 import { useState } from 'react';
 import {
@@ -11,10 +5,11 @@ import {
 } from 'react-native';
 import ToDoList from './components/ToDoList';
 import ToDoForm from './components/ToDoForm';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import MainLayout from '../layouts/MainLayout';
 
-
-function App() {
-
+function HomeScreen({ navigation }) {
   const [tasks, setTasks] = useState([
     'Do laundry',
     'Go to gym',
@@ -30,15 +25,21 @@ const handleAddTask = (task) => {
   //setTasks((prevTasks) => [...prev, task]);
 
   //setTasks(tasks.concat(task));
-
 }
-
   return (
+<MainLayout>
     <SafeAreaView>
       <ToDoList tasks={tasks} />
       <ToDoForm addTask={handleAddTask}/>
+      <Button
+            title="Go to About"
+            onPress={() => navigation.navigate('About')}
+        />
     </SafeAreaView>
+    </MainLayout>
+
   );
+
 }
 
 export default App;
